@@ -1,0 +1,73 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] private GameObject m_player;
+    [SerializeField] private GameObject m_visual;
+
+    [HideInInspector] public UnityEvent m_deathEvent = new UnityEvent();
+
+    [Space]
+
+    [Tooltip("The distance from the player the enemy needs to be to trigger death")]
+    [SerializeField] private float m_distanceToTriggerDeath = 1.0f;
+
+    [SerializeField] private float m_moveSpeed = 1.0f;
+    [HideInInspector] public bool m_dead = false;
+    [HideInInspector] public bool m_useDefaultDestroy = true;
+
+    [Header("Audio")]
+    public AudioSource m_deathSound;
+
+    [Header("Scoring")]
+    [SerializeField] private int m_baseScore = 20;
+
+    void Start()
+    {
+        
+    }
+
+
+    void Update()
+    {
+        if(!m_dead)
+        {
+            //Simple movement. Before pathfinding is a thing
+            Vector3 vecToPlayer = m_player.transform.position - transform.position;
+            Vector3 dirToPlayer = vecToPlayer.normalized;
+            transform.position += dirToPlayer * m_moveSpeed * Time.deltaTime;
+
+            if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
+            {
+                OnDeath();
+            }
+        }
+
+        //Destroy object
+        if (m_dead && !m_deathSound.isPlaying)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnSpawn()
+    {
+
+    }
+
+    void OnDeath()
+    {
+        m_dead = true;
+        if(!m_deathSound.isPlaying)
+            m_deathSound.Play();
+
+        m_deathEvent.Invoke();
+
+        m_visual.SetActive(false);
+
+        //add to the player's score
+    }
+}
