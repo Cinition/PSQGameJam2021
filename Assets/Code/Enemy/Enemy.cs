@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
         UpdatePath();
 
         m_rb = GetComponent<Rigidbody2D>();
+        m_player = GameObject.FindWithTag("Player");
     }
 
 
