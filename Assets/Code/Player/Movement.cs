@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movment : MonoBehaviour
+public class Movement : MonoBehaviour
 {
 
     public float movespeed = 1f;
@@ -15,7 +15,7 @@ public class movment : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3(1, 0, 0) * movespeed * Time.deltaTime;
+            transform.position += new Vector3(-1, 0, 0) * movespeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -23,7 +23,7 @@ public class movment : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(-1, 0, 0) * movespeed * Time.deltaTime;
+            transform.position += new Vector3(1, 0, 0) * movespeed * Time.deltaTime;
         }
     }
 }
