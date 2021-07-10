@@ -38,13 +38,16 @@ public class Enemy : MonoBehaviour
         if(!m_dead)
         {
             //Simple movement. Before pathfinding is a thing
-            Vector3 vecToPlayer = m_player.transform.position - transform.position;
-            Vector3 dirToPlayer = vecToPlayer.normalized;
-            transform.position += dirToPlayer * m_moveSpeed * Time.deltaTime;
-
-            if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
+            if(m_player)
             {
-                OnDeath();
+                Vector3 vecToPlayer = m_player.transform.position - transform.position;
+                Vector3 dirToPlayer = vecToPlayer.normalized;
+                transform.position += dirToPlayer * m_moveSpeed * Time.deltaTime;
+
+                if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
+                {
+                    OnDeath();
+                }
             }
 
             if(m_health <= 0)
