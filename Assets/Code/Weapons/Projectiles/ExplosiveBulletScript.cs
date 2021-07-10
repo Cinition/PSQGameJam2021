@@ -15,4 +15,14 @@ public class ExplosiveBulletScript : MonoBehaviour
     {
         transform.position = transform.position + travelSpeed * transform.right * Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(explosiveDamage);
+        }
+
+        Destroy(gameObject);
+    }
 }
