@@ -7,28 +7,23 @@ public class movment : MonoBehaviour
 
     public float movespeed = 1f;
 
-    void Start()
-    {
-    }
-
-    
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.position += new Vector3(0, 1, 0) * Time.deltaTime * movespeed;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.position += new Vector3(0, -1, 0) * Time.deltaTime * movespeed;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.transform.position += new Vector3(1, 0, 0) * Time.deltaTime * movespeed;
+            transform.position += new Vector3(0, 1, 0) * movespeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * movespeed;
+            transform.position += new Vector3(1, 0, 0) * movespeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += new Vector3(0, -1, 0)* movespeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += new Vector3(-1, 0, 0) * movespeed * Time.deltaTime;
         }
     }
 }
