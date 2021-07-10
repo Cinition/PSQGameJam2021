@@ -138,16 +138,19 @@ public class Enemy : MonoBehaviour
 
     private void UpdatePath()
     {
-        m_currentUpdatePathCooldown = m_updatePathCooldown;
-        m_path = Pathfinding.Instance.FindPath(transform.position, m_player.transform.position);
-        m_currentPathIndex = 1;
-
-        if (m_path != null)
+        if(Pathfinding.Instance != null)
         {
-            for (int i = 0; i < m_path.Count; i++)
+            m_currentUpdatePathCooldown = m_updatePathCooldown;
+            m_path = Pathfinding.Instance.FindPath(transform.position, m_player.transform.position);
+            m_currentPathIndex = 1;
+
+            if (m_path != null)
             {
-                if (i + 1 < m_path.Count)
-                    Debug.DrawLine(m_path[i], m_path[i + 1], Color.blue, m_updatePathCooldown);
+                for (int i = 0; i < m_path.Count; i++)
+                {
+                    if (i + 1 < m_path.Count)
+                        Debug.DrawLine(m_path[i], m_path[i + 1], Color.blue, m_updatePathCooldown);
+                }
             }
         }
     }
