@@ -18,7 +18,7 @@ public class SadGun : Gun
 
         for (int i = 0; i < pelletCount; i++)
         {
-            Vector3 newPelletAngle = new Vector3(0, (spreadInAngle * i) - lastHalfed, 0);
+            Vector3 newPelletAngle = new Vector3(0, 0,(spreadInAngle * i) - lastHalfed);
             pelletEulers.Add(newPelletAngle);
         }
     }

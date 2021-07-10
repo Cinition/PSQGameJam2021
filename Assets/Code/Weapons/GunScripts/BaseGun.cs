@@ -9,7 +9,7 @@ public class BaseGun : Gun
 
     public override void Fire()
     {
-        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunObject.transform.rotation);
+        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation);
         bullet.GetComponent<BulletScript>().travelSpeed = bulletSpeed;
     }
 

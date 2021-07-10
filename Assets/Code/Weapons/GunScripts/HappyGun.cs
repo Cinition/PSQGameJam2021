@@ -18,11 +18,11 @@ public class HappyGun : Gun
     private void Start()
     {
 
-        float lastHalfed = (spreadInAngle * (pelletCount - 1)) * 0.5f;
+        float lastHalfed = spreadInAngle * (pelletCount - 1) * 0.5f;
 
         for (int i = 0; i < pelletCount; i++)
         {
-            Vector3 newPelletAngle = new Vector3(0, (spreadInAngle * i) - lastHalfed, 0);
+            Vector3 newPelletAngle = new Vector3(0, 0,(spreadInAngle * i) - lastHalfed);
             pelletEulers.Add(newPelletAngle);
         }
     }
@@ -33,10 +33,10 @@ public class HappyGun : Gun
         for (int i = 0; i < pelletCount; i++)
         {
             Vector3 spreadVector = pelletEulers[i];
-            spreadVector.y += Random.Range(minSpreadAngle, maxSpreadAngle);
+            spreadVector.z += Random.Range(minSpreadAngle, maxSpreadAngle);
 
             GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation * Quaternion.Euler(spreadVector));
-            bullet.GetComponent<ExplosiveScript>().travelSpeed = bulletTravelSpeed;
+            bullet.GetComponent<ExplosiveBulletScript>().travelSpeed = bulletTravelSpeed;
         }
 
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveScript : MonoBehaviour
+public class ExplosiveBulletScript : MonoBehaviour
 {
 
     public float travelSpeed;
@@ -13,11 +13,6 @@ public class ExplosiveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + travelSpeed * transform.forward * Time.deltaTime;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        transform.position = transform.position + travelSpeed * transform.right * Time.deltaTime;
     }
 }

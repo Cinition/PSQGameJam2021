@@ -12,11 +12,9 @@ public class ExcitedGun : Gun
     public override void Fire()
     {
         Vector3 spreadVector = Vector3.zero;
-        spreadVector.y = Random.Range(minSpreadAngle, maxSpreadAngle);
+        spreadVector.z = Random.Range(minSpreadAngle, maxSpreadAngle);
 
-        Debug.Log(spreadVector.y);
-
-        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunObject.transform.rotation * Quaternion.Euler(spreadVector));
+        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation * Quaternion.Euler(spreadVector));
         bullet.GetComponent<BulletScript>().travelSpeed = bulletTravelSpeed;
     }
 

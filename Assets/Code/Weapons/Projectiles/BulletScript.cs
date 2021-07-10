@@ -12,11 +12,6 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + travelSpeed * transform.forward * Time.deltaTime;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
+        transform.position = transform.position + travelSpeed * transform.right * Time.deltaTime;
     }
 }
