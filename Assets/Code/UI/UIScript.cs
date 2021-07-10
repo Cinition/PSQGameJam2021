@@ -24,19 +24,19 @@ public class UIScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            UIStatic.Instance.angryValue += 10;
+            UIStatic.Instance.angryValue = 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            UIStatic.Instance.excitedValue += 10;
+            UIStatic.Instance.excitedValue = 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            UIStatic.Instance.scaredValue += 10;
+            UIStatic.Instance.scaredValue = 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            UIStatic.Instance.sadValue += 10;
+            UIStatic.Instance.sadValue = 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
