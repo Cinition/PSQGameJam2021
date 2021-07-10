@@ -6,7 +6,7 @@ public class PathfindingManager : MonoBehaviour
 {
     Pathfinding m_pathfinding;
 
-    [SerializeField] private GameObject m_player;
+    //[SerializeField] private GameObject m_player;
 
     [SerializeField] private Vector3 m_origin = new Vector3(-10, -10, 0);
     [SerializeField] private float m_cellSize = 1;
