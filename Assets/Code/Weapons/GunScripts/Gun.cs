@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     public GameObject bulletObject;
 
     public float intervalShootingTime;
-    float intervalShootingTimer = 0.0f;
+    public float intervalShootingTimer = 0.0f;
 
     bool canFire;
 
@@ -35,6 +35,7 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
+        UpdateWeapon();
         if (intervalShootingTimer >= intervalShootingTime)
         {
             canFire = true;
@@ -58,6 +59,11 @@ public class Gun : MonoBehaviour
     public virtual void Fire()
     {
         Debug.Log("I Fired No Gun");
+    }
+
+    public virtual void UpdateWeapon()
+    {
+        // Used for hammer
     }
 
 }

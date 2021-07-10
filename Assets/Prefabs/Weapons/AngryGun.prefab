@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993180514989221833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.652, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7268384034643159648}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993180515492280382}
-  - component: {fileID: 7873841860931649677}
+  - component: {fileID: 4189978489955006444}
   m_Layer: 0
   m_Name: AngryGun
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7873841860931649677
+--- !u!114 &4189978489955006444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,17 +72,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 993180515492280380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c254dd8ee168634a8747eac3d158ebc, type: 3}
+  m_Script: {fileID: 11500000, guid: f3dfdc27aebae3541abac1b4c7288c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gunType: 2
   gunObject: {fileID: 1381425945898279683}
   gunSpawnPos: {fileID: 993180514989221833}
-  bulletObject: {fileID: 3266738108537255358, guid: 37a919fade0fc04418c4b4f089ca8ceb, type: 3}
-  intervalShootingTime: 0.05
-  burstWaitTime: 0.65
-  burstCount: 4
-  bulletTravelSpeed: 10
+  bulletObject: {fileID: 0}
+  intervalShootingTime: 0.35
+  intervalShootingTimer: 0
+  swingTime: 0.2
+  swingAngle: 120
+  side: 0
+  swinging: 0
 --- !u!1 &1381425945898279683
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381425945898279683}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.341, y: 0, z: 0}
+  m_LocalPosition: {x: 0.695, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 993180514989221834}
