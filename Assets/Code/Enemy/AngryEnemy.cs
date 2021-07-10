@@ -22,6 +22,7 @@ public class AngryEnemy : MonoBehaviour
         m_enemy.m_deathEvent.AddListener(OnDeath);
 
         m_explosionCooldown = m_explosionDelay;
+        m_enemy.SetUseDefaultDeath(false);
     }
 
     void Update()
@@ -53,6 +54,5 @@ public class AngryEnemy : MonoBehaviour
     void OnDeath()
     {
         //Make big explosion
-
     }
 }

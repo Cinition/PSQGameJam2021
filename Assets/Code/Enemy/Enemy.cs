@@ -16,8 +16,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float m_distanceToTriggerDeath = 1.0f;
 
     [SerializeField] private float m_moveSpeed = 1.0f;
+    [SerializeField] private int m_health = 5; 
+
     [HideInInspector] public bool m_dead = false;
-    [HideInInspector] public bool m_useDefaultDestroy = true;
+    private bool m_useDefaultDestroy = true;
 
     [Header("Audio")]
     public AudioSource m_deathSound;
@@ -44,13 +46,26 @@ public class Enemy : MonoBehaviour
             {
                 OnDeath();
             }
+
+            if(m_health <= 0)
+            {
+                OnDeath();
+            }
         }
 
         //Destroy object
-        if (m_dead && !m_deathSound.isPlaying)
+        if(m_useDefaultDestroy)
         {
-            Destroy(gameObject);
+            if (m_dead && !m_deathSound.isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        m_health -= amount;
     }
 
     void OnSpawn()
@@ -69,5 +84,10 @@ public class Enemy : MonoBehaviour
         m_visual.SetActive(false);
 
         //add to the player's score
+    }
+
+    public void SetUseDefaultDeath(bool state)
+    {
+        m_useDefaultDestroy = state;
     }
 }
