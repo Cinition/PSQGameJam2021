@@ -9,7 +9,7 @@ public class Test : MonoBehaviour
     [SerializeField] private GameObject m_player;
 
     [SerializeField] private Vector3 m_origin;
-    [SerializeField] private float m_cellSize;
+    [SerializeField] private float m_cellSize = 1;
 
     void Start()
     {
