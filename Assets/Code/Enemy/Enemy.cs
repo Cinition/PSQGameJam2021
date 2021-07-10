@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    private Pathfinding m_pathfinding;
+
     [SerializeField] private GameObject m_player;
     [SerializeField] private GameObject m_visual;
 
