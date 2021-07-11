@@ -25,7 +25,8 @@ public class SadGun : Gun
 
     public override void Fire()
     {
-
+        if (m_shootSound)
+            m_shootSound.Play();
         for (int i = 0; i < pelletCount; i++)
         {
             GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation * Quaternion.Euler(pelletEulers[i]));

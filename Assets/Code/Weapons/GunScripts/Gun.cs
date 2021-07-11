@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-  
     public enum GunEmotionTypes
     {
         Basic,
@@ -14,6 +13,7 @@ public class Gun : MonoBehaviour
         Scared,
         Sad
     }
+
 
     public GunEmotionTypes gunType;
 
@@ -26,6 +26,8 @@ public class Gun : MonoBehaviour
     public float intervalShootingTimer = 0.0f;
 
     bool canFire;
+
+    public AudioSource m_shootSound;
 
     private void Start()
     {
@@ -65,5 +67,4 @@ public class Gun : MonoBehaviour
     {
         // Used for hammer
     }
-
 }

@@ -87,15 +87,15 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            if(m_player)
-            {
-                Vector3 vecToPlayer = m_player.transform.position - transform.position;
-                if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
-                {
-                    OnDeath();
-                    DamagePlayer();
-                }
-            }
+            //if(m_player)
+            //{
+            //    Vector3 vecToPlayer = m_player.transform.position - transform.position;
+            //    if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
+            //    {
+            //        OnDeath();
+            //        DamagePlayer();
+            //    }
+            //}
 
             //Simple movement. Before pathfinding is a thing
             //if(m_player)
@@ -135,6 +135,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.CompareTag("Player") && !m_dead)
+        {
+            DamagePlayer();
+            OnDeath();
+        }
+    }
     private void DamagePlayer()
     {
         UIStatic.Instance.HPValue -= m_damageToPlayer;

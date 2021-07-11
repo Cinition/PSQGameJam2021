@@ -11,6 +11,8 @@ public class BaseGun : Gun
     {
         GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation);
         bullet.GetComponent<BulletScript>().travelSpeed = bulletSpeed;
+        if (m_shootSound)
+            m_shootSound.Play();
     }
 
 }

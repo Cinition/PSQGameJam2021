@@ -16,6 +16,8 @@ public class ExcitedGun : Gun
 
         GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation * Quaternion.Euler(spreadVector));
         bullet.GetComponent<BulletScript>().travelSpeed = bulletTravelSpeed;
+        if (m_shootSound)
+            m_shootSound.Play();
     }
 
 }
