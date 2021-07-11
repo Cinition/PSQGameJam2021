@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float m_moveSpeed = 1.0f;
     [SerializeField] private int m_health = 5;
+    [SerializeField] private int m_damageToPlayer = 1;
 
 
     [SerializeField] private float m_updatePathCooldown = 1f;
@@ -26,6 +27,9 @@ public class Enemy : MonoBehaviour
 
     private List<Vector3> m_path;
     private int m_currentPathIndex = 0;
+
+    [SerializeField] private Vector3 m_movementModifier = Vector3.zero;
+    private Vector3 m_moveDir;
 
 
     [HideInInspector] public bool m_dead = false;
@@ -55,7 +59,13 @@ public class Enemy : MonoBehaviour
                 if(m_currentPathIndex < m_path.Count)
                 {
                     Vector3 vecToNextPos = m_path[m_currentPathIndex] - transform.position;
-                    transform.position += vecToNextPos.normalized * m_moveSpeed * Time.deltaTime;
+
+                    Vector3 newPos = (vecToNextPos.normalized) * m_moveSpeed;
+
+                    m_moveDir = newPos.normalized;
+
+                    newPos += m_movementModifier;
+                    transform.position += newPos * Time.deltaTime;
 
                     //Vector3 force = vecToNextPos.normalized * m_moveSpeed * Time.deltaTime;
                     //m_rb.MovePosition(transform.position + force);
@@ -68,6 +78,16 @@ public class Enemy : MonoBehaviour
                 else
                 {
 
+                }
+            }
+
+            if(m_player)
+            {
+                Vector3 vecToPlayer = m_player.transform.position - transform.position;
+                if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
+                {
+                    OnDeath();
+                    DamagePlayer();
                 }
             }
 
@@ -107,6 +127,28 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void DamagePlayer()
+    {
+        UIStatic.Instance.HPValue -= m_damageToPlayer;
+    }
+
+    public void AddMovement(Vector3 movement, bool resetMovement)
+    {
+        if(resetMovement)
+        {
+            m_movementModifier = movement;
+        }
+        else
+        {
+            m_movementModifier += movement;
+        }
+    }
+
+    public Vector3 GetMoveDir()
+    {
+        return m_moveDir;
     }
 
     public void TakeDamage(int amount)

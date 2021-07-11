@@ -82,7 +82,7 @@ public class Pathfinding
             Node currentNode = GetLowestFCostNode(m_openList);
             if(currentNode == endNode)
             {
-                Debug.Log("Reached end node");
+                //Debug.Log("Reached end node");
                 return CalculatePath(endNode, startNode);
             }
 
