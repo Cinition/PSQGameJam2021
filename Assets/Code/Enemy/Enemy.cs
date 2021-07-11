@@ -53,9 +53,9 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        //m_player = GameObject.FindWithTag("Player");
-        //UpdatePath();
-        //m_rb = GetComponent<Rigidbody2D>();
+        m_player = GameObject.FindWithTag("Player");
+        UpdatePath();
+        m_rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()

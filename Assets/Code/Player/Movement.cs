@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     Rigidbody2D m_rb;
     Vector3 m_newPos;
 
-    public float movespeed = 1f;
+    public float moveSpeed = 1f;
+    Vector2 movement;
 
     private void Start()
     {
@@ -17,23 +18,12 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            m_newPos += new Vector3(0, 1, 0) * movespeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            m_newPos += new Vector3(-1, 0, 0) * movespeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            m_newPos += new Vector3(0, -1, 0)* movespeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            m_newPos += new Vector3(1, 0, 0) * movespeed * Time.deltaTime;
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
 
-        m_rb.MovePosition(m_newPos);
+    private void FixedUpdate()
+    {
+        m_rb.MovePosition(m_rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
