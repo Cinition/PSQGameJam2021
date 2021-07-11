@@ -10,6 +10,8 @@ public class AngryGun : Gun
     float swingTimer;
     public float swingAngle;
 
+    public int meleeDamage;
+
     // false = rightSide
     // true = leftSide
     public bool side = false;
@@ -17,6 +19,11 @@ public class AngryGun : Gun
 
     Vector3 leftSide;
     Vector3 rightSide;
+
+    private void Start()
+    {
+        bulletObject.SetActive(false);
+    }
 
     public override void UpdateWeapon()
     {
@@ -29,11 +36,13 @@ public class AngryGun : Gun
             swinging = false;
             side = !side;
             swingTimer = 0.0f;
+            bulletObject.SetActive(false);
         }
 
         if (swinging)
         {
             swingTimer += Time.deltaTime;
+            bulletObject.SetActive(true);
         }
 
         if (side)
