@@ -42,11 +42,11 @@ public class PathfindingManager : MonoBehaviour
 
     private string[] m_buildSavePathStrings =
 {
-        "/../MapSlot0.png",
-        "/../MapSlot1.png",
-        "/../MapSlot2.png",
-        "/../MapSlot3.png",
-        "/../MapSlot4.png",
+        "/../EmotionalBreakdown_Data/MapSlot0.png",
+        "/../EmotionalBreakdown_Data/MapSlot1.png",
+        "/../EmotionalBreakdown_Data/MapSlot2.png",
+        "/../EmotionalBreakdown_Data/MapSlot3.png",
+        "/../EmotionalBreakdown_Data/MapSlot4.png",
     };
 
     //[SerializeField] private Terrain[] m_map;
@@ -56,7 +56,7 @@ public class PathfindingManager : MonoBehaviour
     {
         if (!Application.isEditor)
         {
-            m_finalPath = Application.persistentDataPath + m_buildSavePathStrings[(int)m_savePath];
+            m_finalPath = Application.dataPath + m_buildSavePathStrings[(int)m_savePath];
             m_showDebug = false;
         }
         else
