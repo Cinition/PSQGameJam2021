@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource m_deathSound;
+    [SerializeField] private AudioSource m_hitSound;
+
 
     [Header("Scoring")]
     [SerializeField] private int m_baseScore = 20;
@@ -51,9 +53,9 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        m_player = GameObject.FindWithTag("Player");
-        UpdatePath();
-        m_rb = GetComponent<Rigidbody2D>();
+        //m_player = GameObject.FindWithTag("Player");
+        //UpdatePath();
+        //m_rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -135,9 +137,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void PlayBulletHitSound()
     {
-        if(col.CompareTag("Player") && !m_dead)
+        if(m_hitSound)
+            m_hitSound.Play();
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.collider.CompareTag("Player") && !m_dead)
         {
             DamagePlayer();
             OnDeath();

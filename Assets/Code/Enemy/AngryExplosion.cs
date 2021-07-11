@@ -23,7 +23,7 @@ public class AngryExplosion : MonoBehaviour
 
             if (!m_explosionSound.isPlaying)
                 m_explosionSound.Play();
-            Debug.Log("damage player with angry explosion");
+            //Debug.Log("damage player with angry explosion");
             UIStatic.Instance.HPValue -= m_damage;
             m_done = true;
         }
