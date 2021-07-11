@@ -88,6 +88,15 @@ public class Enemy : MonoBehaviour
 
                 }
             }
+            else
+            {
+                if (m_player)
+                {
+                    Vector3 vecToPlayer = m_player.transform.position - transform.position;
+                    Vector3 dirToPlayer = vecToPlayer.normalized;
+                    transform.position += dirToPlayer * m_moveSpeed * Time.deltaTime;
+                }
+            }
 
             //if(m_player)
             //{
@@ -100,17 +109,7 @@ public class Enemy : MonoBehaviour
             //}
 
             //Simple movement. Before pathfinding is a thing
-            //if(m_player)
-            //{
-            //    Vector3 vecToPlayer = m_player.transform.position - transform.position;
-            //    Vector3 dirToPlayer = vecToPlayer.normalized;
-            //    transform.position += dirToPlayer * m_moveSpeed * Time.deltaTime;
 
-            //    if (vecToPlayer.sqrMagnitude <= m_distanceToTriggerDeath)
-            //    {
-            //        OnDeath();
-            //    }
-            //}
 
             if (m_health <= 0)
             {
@@ -118,14 +117,19 @@ public class Enemy : MonoBehaviour
             }
 
             Pathfinding.Instance.GetGrid().GetXY(m_player.transform.position, out int x, out int y);
+            Pathfinding.Instance.GetGrid().GetXY(transform.position, out int x2, out int y2);
 
             if (m_currentUpdatePathCooldown > 0.0f)
             {
                 m_currentUpdatePathCooldown -= Time.deltaTime;
             }
-            else if(Pathfinding.Instance.GetGrid().GetNode(x, y).GetIsTraversable()) //Check if the player is on a traversible area. avoids searching for impossible paths
+            else if(Pathfinding.Instance.GetGrid().GetNode(x, y).GetIsTraversable() && Pathfinding.Instance.GetGrid().GetNode(x2, y2).GetIsTraversable()) //Check if the player is on a traversible area. avoids searching for impossible paths
             {
                 UpdatePath();
+            }
+            else
+            {
+                m_path = null;
             }
         }
 
