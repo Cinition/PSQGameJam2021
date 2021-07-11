@@ -61,27 +61,30 @@ public class PathfindingManager : MonoBehaviour
 
     void Update()
     {
-        //Only runtime obstacles for now
-        if (Input.GetMouseButtonDown(1))
+        if(m_showDebug)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = -Camera.main.transform.position.z;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            m_pathfinding.GetGrid().GetXY(mousePos, out int x, out int y);
+            //Only runtime obstacles for now
+            if (Input.GetMouseButtonDown(1))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = -Camera.main.transform.position.z;
+                mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+                m_pathfinding.GetGrid().GetXY(mousePos, out int x, out int y);
 
-            if (m_pathfinding.GetGrid().GetNode(x, y).GetIsTraversable())
-                m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(Node.TRAVERSE_TYPE.OBSTACLE);
-            else
-                m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(Node.TRAVERSE_TYPE.TRAVERSABLE);
-        }
+                if (m_pathfinding.GetGrid().GetNode(x, y).GetIsTraversable())
+                    m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(Node.TRAVERSE_TYPE.OBSTACLE);
+                else
+                    m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(Node.TRAVERSE_TYPE.TRAVERSABLE);
+            }
 
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            SaveTexture();
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            LoadTexture();
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                SaveTexture();
+            }
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                LoadTexture();
+            }
         }
     }
 
