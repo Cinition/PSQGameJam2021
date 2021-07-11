@@ -733,7 +733,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: UITestingScene
+          m_StringArgument: Map1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &507867784
@@ -1410,7 +1410,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: UITestingScene
+          m_StringArgument: Map1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1130710754
@@ -1933,7 +1933,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: UITestingScene
+          m_StringArgument: Map1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1607257395

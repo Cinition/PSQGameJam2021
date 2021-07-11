@@ -22,7 +22,7 @@ public class enemyspwaner : MonoBehaviour
     public GameObject sad;
 
     public GameObject player;
-    public Transform playerTransform;
+    Transform playerTransform;
 
     int max = 3;
     int min = 1;
