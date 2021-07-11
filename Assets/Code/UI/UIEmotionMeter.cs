@@ -29,9 +29,11 @@ public class UIEmotionMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("adadw");
+
         UpdateValue();
 
-        slider.fillAmount = meterValue / 100;
+        slider.fillAmount = (float)meterValue / 100;
     }
 
     void UpdateValue()

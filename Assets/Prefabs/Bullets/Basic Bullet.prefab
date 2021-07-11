@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelSpeed: 15
-  bulletDamage: 1
+  bulletDamage: 2
 --- !u!61 &1190648573948647153
 BoxCollider2D:
   m_ObjectHideFlags: 0

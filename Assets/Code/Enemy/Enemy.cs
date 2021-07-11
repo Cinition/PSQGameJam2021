@@ -203,7 +203,30 @@ public class Enemy : MonoBehaviour
 
         m_visual.SetActive(false);
 
-        //add to the player's score
+        UIStatic.Instance.highScore += m_baseScore;
+
+        Debug.Log(gameObject.name);
+
+        if (gameObject.name == "HappyEnemy(Clone)")
+        {
+            UIStatic.Instance.happyValue += 10;
+        }
+        if (gameObject.name == "AngryEnemy(Clone)")
+        {
+            UIStatic.Instance.angryValue += 10;
+        }
+        if (gameObject.name == "ExcitedEnemy(Clone)")
+        {
+            UIStatic.Instance.excitedValue += 10;
+        }
+        if (gameObject.name == "ScaredEnemy(Clone)")
+        {
+            UIStatic.Instance.scaredValue += 10;
+        }
+        if (gameObject.name == "SadEnemy(Clone)")
+        {
+            UIStatic.Instance.sadValue += 10;
+        }
     }
 
     public void SetUseDefaultDeath(bool state)
