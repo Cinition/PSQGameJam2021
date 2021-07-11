@@ -25,6 +25,9 @@ public class HappyEnemy : MonoBehaviour
 
     void OnDeath()
     {
-        Instantiate(m_healthPickup, transform.position, transform.rotation, PickupManager.Instance.transform);
+        if(PickupManager.Instance)
+            Instantiate(m_healthPickup, transform.position, transform.rotation, PickupManager.Instance.transform);
+        else
+            Instantiate(m_healthPickup, transform.position, transform.rotation);
     }
 }
