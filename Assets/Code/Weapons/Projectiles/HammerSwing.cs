@@ -19,7 +19,7 @@ public class HammerSwing : MonoBehaviour
 
     private async void DelayedDamage(GameObject enemy)
     {
-        enemy.GetComponent<Rigidbody2D>().AddForce(playerVector * 15, ForceMode2D.Impulse);
+        enemy.GetComponent<Rigidbody2D>().AddForce(playerVector * 20, ForceMode2D.Impulse);
 
         await Task.Delay(System.TimeSpan.FromSeconds(waitDamageTime));
 

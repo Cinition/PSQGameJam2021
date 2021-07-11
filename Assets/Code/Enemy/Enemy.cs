@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject m_player;
+    [SerializeField] public GameObject m_player;
     [SerializeField] private GameObject m_visual;
 
     [HideInInspector] public UnityEvent m_deathEvent = new UnityEvent();
@@ -45,6 +45,12 @@ public class Enemy : MonoBehaviour
         m_player = GameObject.FindWithTag("Player");
     }
 
+    void Awake()
+    {
+        m_player = GameObject.FindWithTag("Player");
+        UpdatePath();
+        m_rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {

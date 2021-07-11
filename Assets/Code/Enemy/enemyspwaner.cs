@@ -21,9 +21,8 @@ public class enemyspwaner : MonoBehaviour
     public GameObject scared;
     public GameObject sad;
 
-    public Transform player;
-
-    public GameObject uistatic;
+    public GameObject player;
+    public Transform playerTransform;
 
     int max = 3;
     int min = 1;
@@ -31,8 +30,9 @@ public class enemyspwaner : MonoBehaviour
     void Start()
     {
         timercount = timer;
-    }
 
+        playerTransform = player.transform;
+    }
 
     void Update()
     {
@@ -68,12 +68,12 @@ public class enemyspwaner : MonoBehaviour
                 }
                 y = Random.Range(-distance, distance);
             }
-            x = x + player.position.x;
-            y = y + player.position.y;
+            x = x + playerTransform.position.x;
+            y = y + playerTransform.position.y;
             int a = 6;
 
             //cheks sad
-            if (uistatic.GetComponent<UIStatic>().sadValue >= 100)
+            if (UIStatic.Instance.GetComponent<UIStatic>().sadValue >= 100)
             {
                 //decides enemy to spawn
                 switch (Random.Range(min, a))
@@ -81,7 +81,7 @@ public class enemyspwaner : MonoBehaviour
                     case 1:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(happy, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(happy, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -95,7 +95,7 @@ public class enemyspwaner : MonoBehaviour
                     case 2:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(angry, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(angry, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -109,7 +109,7 @@ public class enemyspwaner : MonoBehaviour
                     case 3:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(exited, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(exited, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -123,7 +123,7 @@ public class enemyspwaner : MonoBehaviour
                     case 4:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(scared, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(scared, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -137,7 +137,7 @@ public class enemyspwaner : MonoBehaviour
                     case 5:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(sad, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(sad, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -156,21 +156,21 @@ public class enemyspwaner : MonoBehaviour
                 switch (Random.Range(min, a))
                 {
                     case 1:
-                        Instantiate(happy, new Vector3(x, y, 0), Quaternion.identity);
+                        EnemyInstantiate(happy, new Vector3(x, y, 0));
                         break;
                     case 2:
-                        Instantiate(angry, new Vector3(x, y, 0), Quaternion.identity);
+                        EnemyInstantiate(angry, new Vector3(x, y, 0));
                         break;
                     case 3:
-                        Instantiate(exited, new Vector3(x, y, 0), Quaternion.identity);
+                        EnemyInstantiate(exited, new Vector3(x, y, 0));
                         break;
                     case 4:
-                        Instantiate(scared, new Vector3(x, y, 0), Quaternion.identity);
+                        EnemyInstantiate(scared, new Vector3(x, y, 0));
                         break;
                     case 5:
                         for (int i = 0; i < sadmulti; i++)
                         {
-                            Instantiate(sad, new Vector3(x, y, 0), Quaternion.identity);
+                            EnemyInstantiate(sad, new Vector3(x, y, 0));
                             if (Random.Range(min, max) == 1)
                             {
                                 x = x + saddistance;
@@ -184,5 +184,10 @@ public class enemyspwaner : MonoBehaviour
                 }
             }
         }
+    }
+
+    void EnemyInstantiate(GameObject enemy, Vector3 spawnPosition)
+    {
+        GameObject instantiatedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
     }
 }
