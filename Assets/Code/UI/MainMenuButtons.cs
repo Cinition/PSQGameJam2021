@@ -16,12 +16,6 @@ public class MainMenuButtons : MonoBehaviour
         DifficultyGroup.SetActive(true);
     }
 
-    public void Options()
-    {
-        //MainMenuGroup.SetActive(false);
-        //OptionsGroup.SetActive(true);
-    }
-
     public void ReturnToMainMenu()
     {
         DifficultyGroup.SetActive(false);
@@ -34,22 +28,43 @@ public class MainMenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-    public void EasyDifficulty(string sceneName)
+    public void EasyDifficulty()
     {
         UIStatic.Instance.MaxHPValue = 5;
-        SceneManager.LoadScene(sceneName);
+        if (Random.Range(0, 2) == 0)
+        {
+            SceneManager.LoadScene("Map1");
+        }
+        else
+        {
+            SceneManager.LoadScene("Map2");
+        }
     }
 
-    public void MediumDifficulty(string sceneName)
+    public void MediumDifficulty()
     {
         UIStatic.Instance.MaxHPValue = 3;
-        SceneManager.LoadScene(sceneName);
+        if (Random.Range(0,2) == 0)
+        {
+            SceneManager.LoadScene("Map1");
+        }
+        else
+        {
+            SceneManager.LoadScene("Map2");
+        }
     }
 
-    public void HardDifficulty(string sceneName)
+    public void HardDifficulty()
     {
         UIStatic.Instance.MaxHPValue = 1;
-        SceneManager.LoadScene(sceneName);
+        if (Random.Range(0, 2) == 0)
+        {
+            SceneManager.LoadScene("Map1");
+        }
+        else
+        {
+            SceneManager.LoadScene("Map2");
+        }
     }
 
 }
