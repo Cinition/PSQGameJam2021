@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 
 public class enemyspwaner : MonoBehaviour
 {
@@ -24,18 +24,26 @@ public class enemyspwaner : MonoBehaviour
     public GameObject player;
     Transform playerTransform;
 
+    public Tilemap tilemap;
+    BoundsInt size;
+    TileBase[] allTiles;
+
     int max = 3;
     int min = 1;
 
     void Start()
     {
         timercount = timer;
-
         playerTransform = player.transform;
+
+        size = tilemap.cellBounds;
+        allTiles = tilemap.GetTilesBlock(size);
+
     }
 
     void Update()
     {
+
         timercount -= 1 * Time.deltaTime;
         if (timercount < 0)
         {
@@ -188,6 +196,15 @@ public class enemyspwaner : MonoBehaviour
 
     void EnemyInstantiate(GameObject enemy, Vector3 spawnPosition)
     {
-        GameObject instantiatedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+        Vector3Int localPlace = new Vector3Int(Random.Range(size.xMin, size.xMax), Random.Range(size.yMin, size.yMax), (int)tilemap.transform.position.y);
+        Vector3 place = tilemap.CellToWorld(localPlace);
+
+        while (!tilemap.HasTile(localPlace))
+        {
+            localPlace = new Vector3Int(Random.Range(size.xMin, size.xMax), Random.Range(size.yMin, size.yMax), (int)tilemap.transform.position.y);
+            place = tilemap.CellToWorld(localPlace);
+        }
+
+        Instantiate(enemy, place, Quaternion.identity);
     }
 }
