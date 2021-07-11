@@ -1779,6 +1779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIStatics
       objectReference: {fileID: 0}
+    - target: {fileID: 5541473443287890504, guid: e5be56ba076e1e54d9a0cc9df78ba2fa, type: 3}
+      propertyPath: MaxHPValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5541473443287890505, guid: e5be56ba076e1e54d9a0cc9df78ba2fa, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2091,6 +2095,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3718987022852887268, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
+      propertyPath: m_erraticSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718987022852887268, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
+      propertyPath: m_changeDirectionTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4121973750172323464, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -2157,12 +2169,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662398187222895721, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5662398187222895723, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
       propertyPath: m_player
       value: 
       objectReference: {fileID: 998589745}
+    - target: {fileID: 5662398187222895723, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
+      propertyPath: m_moveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884aa25048b1c0448a19d2c33fd9e507, type: 3}
 --- !u!1001 &7886902663437204014
