@@ -20,6 +20,7 @@ public class PathfindingManager : MonoBehaviour
     [SerializeField] private bool m_showDebug = true;
 
     [SerializeField] private SavePath m_savePath = SavePath.Slot0;
+    private string m_finalPath;
 
     public enum SavePath
     {
@@ -39,11 +40,30 @@ public class PathfindingManager : MonoBehaviour
         "/../Assets/Code/Enemy/Pathfinding/MapSlot4.png", 
     };
 
+    private string[] m_buildSavePathStrings =
+{
+        "/../MapSlot0.png",
+        "/../MapSlot1.png",
+        "/../MapSlot2.png",
+        "/../MapSlot3.png",
+        "/../MapSlot4.png",
+    };
+
     //[SerializeField] private Terrain[] m_map;
 
 
     void Start()
     {
+        if (!Application.isEditor)
+        {
+            m_finalPath = Application.persistentDataPath + m_buildSavePathStrings[(int)m_savePath];
+            m_showDebug = false;
+        }
+        else
+        {
+            m_finalPath = Application.dataPath + m_savePathStrings[(int)m_savePath];
+        }
+
         m_pathfinding = new Pathfinding(m_mapWidth, m_mapHeight, m_cellSize, m_origin);
         m_pathfinding.GetGrid().SetShowDebug(true);
 
@@ -127,12 +147,12 @@ public class PathfindingManager : MonoBehaviour
 
         byte[] bytes = m_texture.EncodeToPNG();
 
-        File.WriteAllBytes(Application.dataPath + m_savePathStrings[(int)m_savePath], bytes);
+        File.WriteAllBytes(m_finalPath, bytes);
     }
 
     void LoadTexture()
     {
-        byte[] bytes = File.ReadAllBytes(Application.dataPath + m_savePathStrings[(int)m_savePath]);
+        byte[] bytes = File.ReadAllBytes(m_finalPath);
 
         m_texture = new Texture2D(m_mapWidth, m_mapHeight, TextureFormat.R8, false);
 
