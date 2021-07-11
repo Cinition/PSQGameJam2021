@@ -57,6 +57,7 @@ MonoBehaviour:
   m_distanceToTriggerDeath: 1
   m_moveSpeed: 1
   m_health: 5
+  m_damageToPlayer: 1
   m_updatePathCooldown: 1
   m_movementModifier: {x: 0, y: 0, z: 0}
   m_dead: 0
@@ -197,14 +198,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5662398187222895721}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
