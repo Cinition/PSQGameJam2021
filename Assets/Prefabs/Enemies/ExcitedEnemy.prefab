@@ -55,7 +55,9 @@ MonoBehaviour:
   m_distanceToTriggerDeath: 1
   m_moveSpeed: 7
   m_health: 5
+  m_damageToPlayer: 1
   m_updatePathCooldown: 0.25
+  m_movementModifier: {x: 0, y: 0, z: 0}
   m_dead: 0
   m_deathSound: {fileID: 1789830413364029409}
   m_baseScore: 20
@@ -191,7 +193,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1789830414537346377
 GameObject:
   m_ObjectHideFlags: 0

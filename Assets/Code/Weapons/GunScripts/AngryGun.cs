@@ -82,5 +82,7 @@ public class AngryGun : Gun
     public override void Fire()
     {
         swinging = true;
+        if(m_shootSound)
+            m_shootSound.Play();
     }
 }

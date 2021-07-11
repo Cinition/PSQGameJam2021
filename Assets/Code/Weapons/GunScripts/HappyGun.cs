@@ -29,7 +29,8 @@ public class HappyGun : Gun
 
     public override void Fire()
     {
-
+        if (m_shootSound)
+            m_shootSound.Play();
         for (int i = 0; i < pelletCount; i++)
         {
             Vector3 spreadVector = pelletEulers[i];

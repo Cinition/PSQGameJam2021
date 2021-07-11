@@ -27,8 +27,10 @@ public class ScaredGun : Gun
             }
         }
 
-        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunObject.transform.rotation);
+        GameObject bullet = Instantiate(bulletObject, gunSpawnPos.transform.position, gunSpawnPos.transform.rotation);
         bullet.GetComponent<BulletScript>().travelSpeed = bulletTravelSpeed;
+        if (m_shootSound)
+            m_shootSound.Play();
 
         burstCounter++;
 
