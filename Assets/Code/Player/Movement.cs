@@ -12,11 +12,11 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_newPos = m_rb.position;
     }
 
     void Update()
     {
-        m_newPos = transform.position;
         if (Input.GetKey(KeyCode.W))
         {
             m_newPos += new Vector3(0, 1, 0) * movespeed * Time.deltaTime;
