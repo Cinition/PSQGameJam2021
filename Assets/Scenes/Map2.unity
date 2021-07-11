@@ -75012,7 +75012,7 @@ PrefabInstance:
       objectReference: {fileID: 1770922072}
     - target: {fileID: 5502835668743149681, guid: 63b1c5aa34a34f04c89ed6b41121ab49, type: 3}
       propertyPath: offset.z
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5502835668743149682, guid: 63b1c5aa34a34f04c89ed6b41121ab49, type: 3}
       propertyPath: m_RootOrder
@@ -75060,7 +75060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5502835668743149683, guid: 63b1c5aa34a34f04c89ed6b41121ab49, type: 3}
       propertyPath: orthographic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5502835668743149693, guid: 63b1c5aa34a34f04c89ed6b41121ab49, type: 3}
       propertyPath: m_Name
