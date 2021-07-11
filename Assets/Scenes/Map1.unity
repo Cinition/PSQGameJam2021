@@ -115921,7 +115921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3750413327821927494, guid: b2777c3fd3f23104aaa4d6e6a33885e8, type: 3}
       propertyPath: timer
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3750413327821927494, guid: b2777c3fd3f23104aaa4d6e6a33885e8, type: 3}
       propertyPath: player
