@@ -43,6 +43,7 @@ public class AngryGun : Gun
         {
             swingTimer += Time.deltaTime;
             bulletObject.SetActive(true);
+            bulletObject.GetComponent<HammerSwing>().playerVector = transform.right;
         }
 
         if (side)
