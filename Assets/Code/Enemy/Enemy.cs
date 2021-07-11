@@ -149,16 +149,16 @@ public class Enemy : MonoBehaviour
     {
         if(col.collider.CompareTag("Player") && !m_dead)
         {
-            DamagePlayer();
             OnDeath();
+            DamagePlayer();
         }
     }
-    private void OnTriggernEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player") && !m_dead)
         {
-            DamagePlayer();
             OnDeath();
+            DamagePlayer();
         }
     }
     private void DamagePlayer()
