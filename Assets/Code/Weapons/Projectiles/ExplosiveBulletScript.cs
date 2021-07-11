@@ -23,6 +23,11 @@ public class ExplosiveBulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(explosiveDamage);
