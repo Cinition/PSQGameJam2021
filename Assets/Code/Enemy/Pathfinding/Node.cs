@@ -47,19 +47,21 @@ public class Node
     {
         m_traverseType = type;
 
-        Debug.Log("Node: " + x + ", " + y);
-
-        if(type == TRAVERSE_TYPE.OBSTACLE)
+        //Debug.Log("Node: " + x + ", " + y);
+        if(m_grid.GetShowDebug())
         {
-            Vector3 pos = m_grid.GetWorldPos(x, y);
-            Vector3 pos2 = m_grid.GetWorldPos(x + 1, y + 1);
-            Debug.DrawLine(pos, pos2, Color.red, 100f);
-        }
-        else
-        {
-            Vector3 pos = m_grid.GetWorldPos(x, y);
-            Vector3 pos2 = m_grid.GetWorldPos(x + 1, y + 1);
-            Debug.DrawLine(pos, pos2, Color.green, 100f);
+            if(type == TRAVERSE_TYPE.OBSTACLE)
+            {
+                Vector3 pos = m_grid.GetWorldPos(x, y);
+                Vector3 pos2 = m_grid.GetWorldPos(x + 1, y + 1);
+                Debug.DrawLine(pos, pos2, Color.red, 100f);
+            }
+            else
+            {
+                Vector3 pos = m_grid.GetWorldPos(x, y);
+                Vector3 pos2 = m_grid.GetWorldPos(x + 1, y + 1);
+                Debug.DrawLine(pos, pos2, Color.green, 100f);
+            }
         }
     }
 }

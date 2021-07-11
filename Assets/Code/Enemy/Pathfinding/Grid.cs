@@ -45,6 +45,15 @@ public class Grid<TNode>
         }
     }
 
+    public void SetShowDebug(bool state)
+    {
+        m_showDebug = state;
+    }
+    public bool GetShowDebug()
+    {
+        return m_showDebug;
+    }
+
     public TNode GetNode(int x, int y)
     {
         if (x < m_width && y < m_height && x >= 0 && y >= 0)
