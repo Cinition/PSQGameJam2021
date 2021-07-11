@@ -16,22 +16,24 @@ public class UIEmotionMeter : MonoBehaviour
 
     public EmotionMeters meterType;
 
-    Slider slider;
+    Image slider;
 
     int meterValue = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        slider = gameObject.GetComponent<Slider>();
+        slider = gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("adadw");
+
         UpdateValue();
 
-        slider.value = meterValue;
+        slider.fillAmount = (float)meterValue / 100;
     }
 
     void UpdateValue()

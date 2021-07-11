@@ -85,7 +85,7 @@ MonoBehaviour:
   m_shootSound: {fileID: 7672621881472332641}
   swingTime: 0.2
   swingAngle: 120
-  meleeDamage: 4
+  meleeDamage: 3
   side: 0
   swinging: 0
 --- !u!82 &7672621881472332641

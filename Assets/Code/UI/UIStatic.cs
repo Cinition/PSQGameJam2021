@@ -22,6 +22,11 @@ public class UIStatic : MonoBehaviour
     public int scaredValue = 0;
     public int sadValue = 0;
 
+    private void Start()
+    {
+        Screen.SetResolution(750, 750, false);
+    }
+
     private void Awake()
     {
         if (Instance == null)
