@@ -20,6 +20,7 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
+            collision.gameObject.GetComponent<Enemy>().PlayBulletHitSound();
         }
 
         Destroy(gameObject);

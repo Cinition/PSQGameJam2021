@@ -47,14 +47,17 @@ public class PathfindingManager : MonoBehaviour
         m_pathfinding = new Pathfinding(m_mapWidth, m_mapHeight, m_cellSize, m_origin);
         m_pathfinding.GetGrid().SetShowDebug(true);
 
-        LoadTexture();
-
-        for (int x = 0; x < m_pathfinding.GetGrid().GetWidth(); x++)
+        if (Directory.Exists(Application.dataPath + m_savePathStrings[(int)m_savePath]))
         {
-            for (int y = 0; y < m_pathfinding.GetGrid().GetHeight(); y++)
+            LoadTexture();
+
+            for (int x = 0; x < m_pathfinding.GetGrid().GetWidth(); x++)
             {
-                Node.TRAVERSE_TYPE type = m_texture.GetPixel(x, y) == Color.black ? Node.TRAVERSE_TYPE.TRAVERSABLE : Node.TRAVERSE_TYPE.OBSTACLE;
-                m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(type);
+                for (int y = 0; y < m_pathfinding.GetGrid().GetHeight(); y++)
+                {
+                    Node.TRAVERSE_TYPE type = m_texture.GetPixel(x, y) == Color.black ? Node.TRAVERSE_TYPE.TRAVERSABLE : Node.TRAVERSE_TYPE.OBSTACLE;
+                    m_pathfinding.GetGrid().GetNode(x, y).SetTraverseType(type);
+                }
             }
         }
     }
