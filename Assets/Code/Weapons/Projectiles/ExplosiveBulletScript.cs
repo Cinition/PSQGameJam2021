@@ -10,10 +10,15 @@ public class ExplosiveBulletScript : MonoBehaviour
 
     public int explosiveDamage;
 
+    private void Awake()
+    {
+        transform.Rotate(new Vector3(0, 0, 1), -90);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + travelSpeed * transform.right * Time.deltaTime;
+        transform.position = transform.position + travelSpeed * transform.up * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

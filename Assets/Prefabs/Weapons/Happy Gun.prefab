@@ -78,7 +78,7 @@ MonoBehaviour:
   gunType: 1
   gunObject: {fileID: 5685661440294069539}
   gunSpawnPos: {fileID: 253849416828682406}
-  bulletObject: {fileID: 3266738108537255358, guid: 0265fa36816915a4caecab6b90c60503, type: 3}
+  bulletObject: {fileID: 832638971280155349, guid: 15a5d1273d37837429df9a9d1c47cb1c, type: 3}
   intervalShootingTime: 0.1
   intervalShootingTimer: 0
   m_shootSound: {fileID: 1003025202201198777}
