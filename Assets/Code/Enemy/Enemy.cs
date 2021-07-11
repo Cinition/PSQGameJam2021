@@ -117,11 +117,13 @@ public class Enemy : MonoBehaviour
                 OnDeath();
             }
 
-            if(m_currentUpdatePathCooldown > 0.0f)
+            Pathfinding.Instance.GetGrid().GetXY(m_player.transform.position, out int x, out int y);
+
+            if (m_currentUpdatePathCooldown > 0.0f)
             {
                 m_currentUpdatePathCooldown -= Time.deltaTime;
             }
-            else
+            else if(Pathfinding.Instance.GetGrid().GetNode(x, y).GetIsTraversable()) //Check if the player is on a traversible area. avoids searching for impossible paths
             {
                 UpdatePath();
             }
@@ -147,8 +149,16 @@ public class Enemy : MonoBehaviour
     {
         if(col.collider.CompareTag("Player") && !m_dead)
         {
-            DamagePlayer();
             OnDeath();
+            DamagePlayer();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player") && !m_dead)
+        {
+            OnDeath();
+            DamagePlayer();
         }
     }
     private void DamagePlayer()
